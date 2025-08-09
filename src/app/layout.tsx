@@ -1,20 +1,14 @@
-import React from 'react';
+import React from "react";
+import "@/../style/global.css";
 
-export default function layout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  
+export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-    <head>
+      <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        {children}
-    </body>
+        <title>Carta-Cumple</title>
+      </head>
+      <body>{children}</body>
     </html>
-  )
+  );
 }
