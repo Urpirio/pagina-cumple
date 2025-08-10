@@ -2,9 +2,11 @@
 import { MdOutlineMailOutline } from "react-icons/md";
 import { motion, AnimatePresence } from "motion/react";
 import { useStyle } from "../../hook/useStyle";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import DialogCarta from "../../Components/DialogCarta";
 import ConfettiExplosion from "react-confetti-explosion";
+import Dialog8Meses from "../../Components/Dialog8Meses";
+import Image from "next/image";
 
 export default function page() {
   const {
@@ -16,10 +18,13 @@ export default function page() {
     ContadorClickers,
     StatusDialog,
     setStatusDialog,
+    image,
+    ChangeImg,
   } = useStyle();
 
   useEffect(() => {
     AnimTime();
+    ChangeImg();
   });
 
   const FucBtnContador = () => {
@@ -32,30 +37,27 @@ export default function page() {
   };
 
   return (
-    <main className="h-screen w-full flex flex-col justify-center items-center bg-rose-100/20">
-      {ContadorClickers === 20 && <ConfettiExplosion duration={8000} />}
-
+    <main className="h-screen w-full flex gap-5 flex-col justify-center items-center bg-linear-to-l from-red-400 to-rose-600">
+      {image}
       <motion.button
-        onClick={() =>FucBtnContador()}
+        onClick={() => FucBtnContador()}
         variants={VarianColor}
-        className={` bg-none text-8xl p-5 flex flex-col border border-rose-500 shadow-2xl shadow-rose-400 rounded-full cursor-pointer ${
+        className={` bg-none text-8xl p-5 flex flex-col border border-rose-500 bg-white rounded-full cursor-pointer ${
           ContadorClickers === 20 ? "text-rose-500" : " text-amber-400 "
         }`}
         animate={BgColor ? "Color" : "Color2"} //Con esto se hace la variacion de objectos y se le da a entender, el estilo que debe tener el componente.
       >
+        {ContadorClickers === 20 && <ConfettiExplosion duration={8000} />}
         <div className="text-4xl font-bold flex flex-col-reverse items-center">
           <span>🎂</span>
           <span>{ContadorClickers}</span>
         </div>
       </motion.button>
 
-
-
-      
-      {/* <DialogCarta
+      <DialogCarta
         StatusDialog={StatusDialog}
         setStatusDialog={setStatusDialog}
-      /> */}
+      />
     </main>
   );
 }
