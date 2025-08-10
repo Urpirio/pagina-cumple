@@ -12,13 +12,14 @@ export const useStyle = () => {
   const [ContadorClickers, setContadorClickers] = useState<number>(1);
   const [StatusDialog, setStatusDialog] = useState<boolean>(false);
   const [image, setImage] = useState<any>();
+  const [StatusDialogWarn,setStatusDialogWarn] = useState<boolean>(false);
 
   const VarianColor = {
     Color: {
       scale: 0.5,
     },
     Color2: {
-      scale: 0.7,
+      scale: 1,
     },
   };
 
@@ -98,6 +99,8 @@ export const useStyle = () => {
     StatusDialog,
     setStatusDialog,
     ChangeImg,
-    image
+    image,
+    setStatusDialogWarn,
+    StatusDialogWarn,
   };
 };

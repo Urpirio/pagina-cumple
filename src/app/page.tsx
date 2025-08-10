@@ -5,8 +5,8 @@ import { useStyle } from "../../hook/useStyle";
 import { useEffect, useState } from "react";
 import DialogCarta from "../../Components/DialogCarta";
 import ConfettiExplosion from "react-confetti-explosion";
-import Dialog8Meses from "../../Components/Dialog8Meses";
 import Image from "next/image";
+import DialogWarnnig from "../../Components/DialogWarnnig";
 
 export default function page() {
   const {
@@ -20,6 +20,8 @@ export default function page() {
     setStatusDialog,
     image,
     ChangeImg,
+    StatusDialogWarn,
+    setStatusDialogWarn,
   } = useStyle();
 
   useEffect(() => {
@@ -29,10 +31,10 @@ export default function page() {
 
   const FucBtnContador = () => {
     setBgColor(!BgColor);
-    if (ContadorClickers < 20) {
+    if (ContadorClickers < 19) {
       setContadorClickers(ContadorClickers + 1);
-    } else if (ContadorClickers == 20) {
-      setStatusDialog(true);
+    } else if (ContadorClickers == 19) {
+      setStatusDialogWarn(true);
     }
   };
 
@@ -43,11 +45,11 @@ export default function page() {
         onClick={() => FucBtnContador()}
         variants={VarianColor}
         className={` bg-none text-8xl p-5 flex flex-col border border-rose-500 bg-white rounded-full cursor-pointer ${
-          ContadorClickers === 20 ? "text-rose-500" : " text-amber-400 "
+          ContadorClickers === 19 ? "text-rose-500" : " text-amber-400 "
         }`}
         animate={BgColor ? "Color" : "Color2"} //Con esto se hace la variacion de objectos y se le da a entender, el estilo que debe tener el componente.
       >
-        {ContadorClickers === 20 && <ConfettiExplosion duration={8000} />}
+        {ContadorClickers === 19 && <ConfettiExplosion duration={8000} />}
         <div className="text-4xl font-bold flex flex-col-reverse items-center">
           <span>🎂</span>
           <span>{ContadorClickers}</span>
@@ -57,6 +59,11 @@ export default function page() {
       <DialogCarta
         StatusDialog={StatusDialog}
         setStatusDialog={setStatusDialog}
+      />
+      <DialogWarnnig
+        setStatusCarta={setStatusDialog}
+        StatusDialog={StatusDialogWarn}
+        setStatusDialog={setStatusDialogWarn}
       />
     </main>
   );
