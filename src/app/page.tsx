@@ -1,87 +1,35 @@
 "use client";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { motion, AnimatePresence } from "motion/react";
-import { useStyle } from "../../hook/useStyle";
-import { useEffect, useState } from "react";
-import DialogCarta from "../../Components/DialogCarta";
-import ConfettiExplosion from "react-confetti-explosion";
-import Image from "next/image";
-import DialogWarnnig from "../../Components/DialogWarnnig";
-import Video from "next-video";
-import VHpAlfa from "@/../videos/HpAlfa.mp4";
+import { IoBalloonOutline } from "react-icons/io5";
+import { IoBalloon } from "react-icons/io5";
+import { motion } from "motion/react";
+import Link from "next/link";
 
 export default function page() {
-  const {
-    BgColor,
-    setBgColor,
-    VarianColor,
-    AnimTime,
-    setContadorClickers,
-    ContadorClickers,
-    StatusDialog,
-    setStatusDialog,
-    image,
-    ChangeImg,
-    StatusDialogWarn,
-    setStatusDialogWarn,
-  } = useStyle();
-
-  const [Isplay, setIsplay] = useState<boolean>(false);
-  const [AudioElemnent, setAudioElement] = useState<any>();
-
-  const FucBtnContador = () => {
-    setBgColor(!BgColor);
-    if (ContadorClickers < 19) {
-      setContadorClickers(ContadorClickers + 1);
-    } else if (ContadorClickers == 19) {
-      setStatusDialogWarn(true);
-    }
-  };
-  useEffect(() => {
-    // if (!Isplay) {
-    //   const audioElement = document.createElement("audio");
-    //    audioElement.src =;
-    //    audioElement.currentTime = 60;
-    //    audioElement.autoplay = true;
-    //   audioElement.controls= true;
-    //   setAudioElement(AudioElemnent);
-    //   setIsplay(true);
-    // }
-  });
-
-  useEffect(() => {
-    AnimTime();
-    ChangeImg();
-  });
-
   return (
-    <main className="h-screen w-full flex gap-5 flex-col justify-center items-center bg-linear-to-l from-red-400 to-rose-600">
-      {image}
-      <audio className="hidden" src={"/audio/HpElALFA.mp3"} autoPlay controls></audio>
-      <motion.button
-        onClick={() => FucBtnContador()}
-        variants={VarianColor}
-        className={` bg-none text-8xl p-5 flex flex-col border border-rose-500 bg-white rounded-full cursor-pointer ${
-          ContadorClickers === 19 ? "text-rose-500" : " text-amber-400 "
-        }`}
-        animate={BgColor ? "Color" : "Color2"} //Con esto se hace la variacion de objectos y se le da a entender, el estilo que debe tener el componente.
-      >
-        {ContadorClickers === 19 && <ConfettiExplosion duration={8000} />}
-        <div className="text-4xl font-bold flex flex-col-reverse items-center">
-          <span>🎂</span>
-          <span>{ContadorClickers}</span>
-        </div>
-      </motion.button>
-
-      <DialogCarta
-        StatusDialog={StatusDialog}
-        setStatusDialog={setStatusDialog}
-      />
-      <DialogWarnnig
-        setStatusCarta={setStatusDialog}
-        StatusDialog={StatusDialogWarn}
-        setStatusDialog={setStatusDialogWarn}
-      />
+    <main className="flex flex-col items-center h-screen w-full justify-center gap-10">
+      <h2 className="text-rose-600 text-5xl font-light">
+        Cartas de cumpleaños
+      </h2>
+      <div className="flex gap-8">
+        <Link href={"/john"}>
+          <motion.article
+            animate={{ scale: 1.1, opacity: 1 }}
+            className="border scale-90 opacity-0 border-gray-300 shadow-2xl p-2 h-50 w-50 cursor-pointer hover:scale-105 hover:bg-violet-400 hover:text-white transition-all duration-300 rounded-2xl flex flex-col items-center justify-center"
+          >
+            <IoBalloon className="text-5xl" />
+            <h2 className="font-bold">John</h2>
+          </motion.article>
+        </Link>
+        <Link href={"/urpirio"}>
+          <motion.article
+            animate={{ scale: 1.1, opacity: 1 }}
+            className="border scale-90 opacity-0 border-gray-300 shadow-2xl cursor-pointer p-2 h-50 w-50 hover:scale-105 hover:bg-rose-400 hover:text-white transition-all duration-300 rounded-2xl flex flex-col items-center justify-center"
+          >
+            <IoBalloonOutline className="text-5xl" />
+            <h2 className="font-bold">Urpirio</h2>
+          </motion.article>
+        </Link>
+      </div>
     </main>
   );
 }
