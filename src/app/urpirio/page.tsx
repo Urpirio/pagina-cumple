@@ -3,10 +3,10 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { motion } from "motion/react";
 import { useStyle } from "../../../hook/useStyle";
 import { useEffect, useState } from "react";
-import DialogCarta from "../../../Components/DialogCarta";
+import DialogCarta from "../../../Components/Components - Urpirio/DialogCarta";
 import ConfettiExplosion from "react-confetti-explosion";
-import DialogWarnnig from "../../../Components/DialogWarnnig";
-import DialogInstrucciones from "../../../Components/DialogInstrucciones";
+import DialogWarnnig from "../../../Components/Components - Urpirio/DialogWarnnig";
+import DialogInstrucciones from "../../../Components/Components - Urpirio/DialogInstrucciones";
 
 export default function page() {
   const {
