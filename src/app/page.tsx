@@ -27,7 +27,7 @@ export default function page() {
   } = useStyle();
 
   const [Isplay, setIsplay] = useState<boolean>(false);
-  const [AudioElemnent, setAudioElement] = useState<any>(<div />);
+  const [AudioElemnent, setAudioElement] = useState<any>();
 
   const FucBtnContador = () => {
     setBgColor(!BgColor);
@@ -38,15 +38,16 @@ export default function page() {
     }
   };
   useEffect(() => {
-    if (!Isplay) {
-      const audioElement = document.createElement("audio");
-      setAudioElement(AudioElemnent);
-      audioElement.src = "/audio/HpElALFA.mp3";
-      audioElement.currentTime = 60;
-      audioElement.autoplay = true;
-      setIsplay(true);
-    }
-  }, []);
+    // if (!Isplay) {
+    //   const audioElement = document.createElement("audio");
+    //    audioElement.src =;
+    //    audioElement.currentTime = 60;
+    //    audioElement.autoplay = true;
+    //   audioElement.controls= true;
+    //   setAudioElement(AudioElemnent);
+    //   setIsplay(true);
+    // }
+  });
 
   useEffect(() => {
     AnimTime();
@@ -56,7 +57,7 @@ export default function page() {
   return (
     <main className="h-screen w-full flex gap-5 flex-col justify-center items-center bg-linear-to-l from-red-400 to-rose-600">
       {image}
-      {AudioElemnent}
+      <audio className="hidden" src={"/audio/HpElALFA.mp3"} autoPlay controls></audio>
       <motion.button
         onClick={() => FucBtnContador()}
         variants={VarianColor}
