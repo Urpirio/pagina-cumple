@@ -21,12 +21,6 @@ export default function DialogInstrucciones() {
       onHide={() => {}}
       closeIcon={true}
     >
-      {/* <audio
-        className="hidden"
-        src={"/audio/HpElALFA.mp3"}
-        autoPlay
-        controls
-      ></audio> */}
       <section className="flex flex-col gap-2">
         <Image src={PerroImg} alt="Perro-Img" />
         <h4 className="text-center text-xl font-bold">
@@ -39,6 +33,13 @@ export default function DialogInstrucciones() {
             className="p-2 translate-x-80 text-sm absolute opacity-0 bg-rose-500 rounded-md text-white hover:opacity-80 cursor-pointer transition-all duration-300"
           >
             Día de los Tambores Metálicos
+          </motion.button>
+           <motion.button
+            animate={{ translateX: -320, position: "relative", opacity: 1 }}
+            onClick={() => setStatusDialog(false)}
+            className="p-2 translate-x-80 text-sm absolute opacity-0 bg-blue-500 rounded-md text-white hover:opacity-80 cursor-pointer transition-all duration-300"
+          >
+            Cumpleños de una china
           </motion.button>
           <motion.a
             animate={{ translateX: 320, position: "relative", opacity: 1 }}

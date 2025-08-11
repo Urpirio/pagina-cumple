@@ -6,9 +6,8 @@ import { Oswald } from "next/font/google";
 import FotoAmigos from "@/../public/FotoAmigos.jpeg";
 import Image from "next/image";
 
-
-const  oswald = Oswald({
-  subsets:["latin-ext"]
+const oswald = Oswald({
+  subsets: ["latin-ext"],
 });
 
 export default function DialogCarta(D: {
@@ -37,7 +36,7 @@ export default function DialogCarta(D: {
         )}
         <div className="flex  justify-end">
           <img
-            className="h-30 absolute translate-x-10 z-30 -translate-y-10 "
+            className="h-30 absolute translate-x-15 z-30 -translate-y-10 "
             src="https://static.vecteezy.com/system/resources/previews/066/667/256/non_2x/soft-pink-rose-close-up-with-delicate-petals-on-transparent-background-png.png"
             alt="Image-Rosa"
           />
@@ -49,9 +48,20 @@ export default function DialogCarta(D: {
             </h2>
             <h3 className="text-rose-300 ">生日快乐</h3>
           </div>
-          <div>
-            <Image className="" src={FotoAmigos} alt="Fotos Amigos"/>
-            
+          <div className="pb-15 flex flex-col gap-2">
+            <Image className="rounded-md" src={FotoAmigos} alt="Fotos Amigos" />
+            <p>
+              Sinceramente, no sabía que existías hasta aquel día en que me
+              diste una taza de café, jajaja. Desde entonces, poco a poco, nos
+              fuimos conociendo y agarrando más cariño, hasta convertirnos en
+              muy buenos amigos. Y eso, para mí, es algo realmente lindo.<br/> <br/>Jamás
+              imaginé que en el trabajo podría conocer a alguien tan única, rara
+              y espontánea como tú, y mucho menos que terminaría apreciándote
+              tanto.<br/> <br/>Me da un poco de nervios escribir esta carta, porque no
+              suelo hacer este tipo de cosas, pero quiero que sepas que cada día
+              te vuelves una persona más especial en mi vida. Un cálido abrazo
+              y… ¡feliz cumpleaños! 🎉 <br/> <br/> Att: Urpirio Junior
+            </p>
           </div>
         </div>
         <div className="flex  justify-start">

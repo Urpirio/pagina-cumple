@@ -19,10 +19,10 @@ export const useStyle = () => {
 
   const VarianColor = {
     Color: {
-      scale: 0.5,
+      scale: 0.8,
     },
     Color2: {
-      scale: 1,
+      scale: 1.2,
     },
   };
 
