@@ -30,14 +30,14 @@ export default function DialogWarnnig(Dt: {
   return (
     <Dialog
       maskClassName="backdrop-blur-2xl  bg-white"
-      className={`rounded-2xl p-5 flex justify-center bg-white w-1/2 min-w-80 ${albert_Sans.className}`}
+      className={`rounded-2xl p-5 flex justify-center bg-white  min-w-80 ${albert_Sans.className}`}
       closeIcon={true}
       visible={StatusDialog}
       onHide={() => {}}
     >
       <motion.section
         animate={{ width: "100%" }}
-        className="h-full w-1/2  flex flex-col gap-4 items-center justify-between rounded-full"
+        className=" w-full  flex flex-col gap-4 items-center justify-between rounded-full"
       >
         <div>
           <h2 className="text-center font-light text-2xl text-amber-500">
@@ -48,7 +48,7 @@ export default function DialogWarnnig(Dt: {
           <button onClick={()=>{
             setStatusDialog(false);
             setStatusCarta(true)
-          }} className="px-2 py-1.5 transition-all duration-200 bg-rose-500 font-light text-white rounded-xl">
+          }} className="px-2 py-1.5 cursor-pointer hover:-translate-y-2 hover:opacity-80 transition-all duration-200 bg-rose-500 font-light text-white rounded-xl">
             Ver carta
           </button>
         )}

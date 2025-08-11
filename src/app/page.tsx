@@ -7,6 +7,8 @@ import DialogCarta from "../../Components/DialogCarta";
 import ConfettiExplosion from "react-confetti-explosion";
 import Image from "next/image";
 import DialogWarnnig from "../../Components/DialogWarnnig";
+import Video from "next-video";
+import VHpAlfa from "@/../videos/HpAlfa.mp4";
 
 export default function page() {
   const {
@@ -24,10 +26,8 @@ export default function page() {
     setStatusDialogWarn,
   } = useStyle();
 
-  useEffect(() => {
-    AnimTime();
-    ChangeImg();
-  });
+  const [Isplay, setIsplay] = useState<boolean>(false);
+  const [AudioElemnent, setAudioElement] = useState<any>(<div />);
 
   const FucBtnContador = () => {
     setBgColor(!BgColor);
@@ -37,10 +37,26 @@ export default function page() {
       setStatusDialogWarn(true);
     }
   };
+  useEffect(() => {
+    if (!Isplay) {
+      const audioElement = document.createElement("audio");
+      setAudioElement(AudioElemnent);
+      audioElement.src = "/audio/HpElALFA.mp3";
+      audioElement.currentTime = 78;
+      audioElement.autoplay = true;
+      setIsplay(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    AnimTime();
+    ChangeImg();
+  });
 
   return (
     <main className="h-screen w-full flex gap-5 flex-col justify-center items-center bg-linear-to-l from-red-400 to-rose-600">
       {image}
+      {AudioElemnent}
       <motion.button
         onClick={() => FucBtnContador()}
         variants={VarianColor}

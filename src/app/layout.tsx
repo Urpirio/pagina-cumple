@@ -8,7 +8,9 @@ export default function layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Carta-Cumple</title>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        </body>
     </html>
   );
 }

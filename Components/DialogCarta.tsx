@@ -3,7 +3,8 @@ import { Dialog } from "primereact/dialog";
 import { Dispatch, SetStateAction } from "react";
 import ConfettiExplosion from "react-confetti-explosion";
 import { Oswald } from "next/font/google";
-
+import FotoAmigos from "@/../public/FotoAmigos.jpeg";
+import Image from "next/image";
 
 
 const  oswald = Oswald({
@@ -18,7 +19,7 @@ export default function DialogCarta(D: {
   return (
     <Dialog
       visible={StatusDialog}
-      className={`h-full w-1/2 border bg-white min-w-80  border-gray-300 shadow-2xl rounded-3xl ${oswald.className}`}
+      className={`h-full w-1/2 border bg-white min-w-80  border-gray-300 shadow-2xl px-5 rounded-3xl ${oswald.className}`}
       maskClassName="backdrop-blur-xs"
       closeIcon={true}
       onHide={() => {}}
@@ -49,7 +50,7 @@ export default function DialogCarta(D: {
             <h3 className="text-rose-300 ">生日快乐</h3>
           </div>
           <div>
-
+            <Image className="" src={FotoAmigos} alt="Fotos Amigos"/>
             
           </div>
         </div>
