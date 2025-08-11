@@ -42,7 +42,7 @@ export default function page() {
       const audioElement = document.createElement("audio");
       setAudioElement(AudioElemnent);
       audioElement.src = "/audio/HpElALFA.mp3";
-      audioElement.currentTime = 78;
+      audioElement.currentTime = 60;
       audioElement.autoplay = true;
       setIsplay(true);
     }
