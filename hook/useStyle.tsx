@@ -1,4 +1,3 @@
-import { color } from "motion";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";

@@ -5,10 +5,8 @@ import { useStyle } from "../../../hook/useStyle";
 import { useEffect, useState } from "react";
 import DialogCarta from "../../../Components/DialogCarta";
 import ConfettiExplosion from "react-confetti-explosion";
-import Image from "next/image";
 import DialogWarnnig from "../../../Components/DialogWarnnig";
-import Video from "next-video";
-import VHpAlfa from "@/../videos/HpAlfa.mp4";
+import DialogInstrucciones from "../../../Components/DialogInstrucciones";
 
 export default function page() {
   const {
@@ -25,9 +23,6 @@ export default function page() {
     StatusDialogWarn,
     setStatusDialogWarn,
   } = useStyle();
-
-  const [Isplay, setIsplay] = useState<boolean>(false);
-  const [AudioElemnent, setAudioElement] = useState<any>();
 
   const FucBtnContador = () => {
     setBgColor(!BgColor);
@@ -63,6 +58,9 @@ export default function page() {
         </div>
       </motion.button>
 
+      
+
+      <DialogInstrucciones/>
       <DialogCarta
         StatusDialog={StatusDialog}
         setStatusDialog={setStatusDialog}
