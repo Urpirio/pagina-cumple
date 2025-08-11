@@ -11,8 +11,7 @@ const albert_Sans = Albert_Sans({
 });
 
 export default function DialogInstrucciones() {
-
-    const [StatusDialog,setStatusDialog ] = useState<boolean>(true)
+  const [StatusDialog, setStatusDialog] = useState<boolean>(true);
   return (
     <Dialog
       maskClassName="backdrop-blur-xs "
@@ -22,6 +21,12 @@ export default function DialogInstrucciones() {
       onHide={() => {}}
       closeIcon={true}
     >
+      {/* <audio
+        className="hidden"
+        src={"/audio/HpElALFA.mp3"}
+        autoPlay
+        controls
+      ></audio> */}
       <section className="flex flex-col gap-2">
         <Image src={PerroImg} alt="Perro-Img" />
         <h4 className="text-center text-xl font-bold">

@@ -11,7 +11,11 @@ export const useStyle = () => {
   const [ContadorClickers, setContadorClickers] = useState<number>(1);
   const [StatusDialog, setStatusDialog] = useState<boolean>(false);
   const [image, setImage] = useState<any>();
-  const [StatusDialogWarn,setStatusDialogWarn] = useState<boolean>(false);
+  const [StatusDialogWarn, setStatusDialogWarn] = useState<boolean>(false);
+  const [bg_colors_main, setbg_Color_main] = useState<{
+    bgInicial: string;
+    bgFinal: string;
+  }>();
 
   const VarianColor = {
     Color: {
@@ -88,6 +92,31 @@ export const useStyle = () => {
     }
   };
 
+  const BackgroundChange = () => {
+    if (!bg_colors_main?.bgFinal) {
+      setTimeout(() => {
+        setbg_Color_main({
+          bgInicial: "from-blue-500",
+          bgFinal: "to-violet-600",
+        });
+      },1000);
+    } else if (bg_colors_main?.bgFinal === "to-violet-600") {
+      setTimeout(() => {
+        setbg_Color_main({
+          bgInicial: "from-red-400",
+          bgFinal: "to-rose-600",
+        });
+      },1000);
+    } else if (bg_colors_main?.bgFinal === "to-rose-600") {
+      setTimeout(() => {
+        setbg_Color_main({
+          bgInicial: "from-blue-500",
+          bgFinal: "to-violet-600",
+        });
+      },1000);
+    }
+  };
+
   return {
     BgColor,
     setBgColor,
@@ -101,5 +130,7 @@ export const useStyle = () => {
     image,
     setStatusDialogWarn,
     StatusDialogWarn,
+    bg_colors_main,
+    BackgroundChange,
   };
 };

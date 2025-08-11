@@ -22,7 +22,10 @@ export default function page() {
     ChangeImg,
     StatusDialogWarn,
     setStatusDialogWarn,
+    bg_colors_main,
+    BackgroundChange
   } = useStyle();
+
 
   const FucBtnContador = () => {
     setBgColor(!BgColor);
@@ -33,16 +36,24 @@ export default function page() {
     }
   };
 
-
   useEffect(() => {
     AnimTime();
     ChangeImg();
+    BackgroundChange();
+
   });
 
   return (
-    <main className="h-screen w-full flex gap-5 flex-col justify-center items-center bg-linear-to-l from-red-400 to-rose-600">
+    <main
+      className={`h-screen w-full flex gap-5 flex-col transition-all duration-2000 justify-center items-center bg-linear-to-l ${bg_colors_main?.bgInicial} ${bg_colors_main?.bgFinal}`}
+    >
       {image}
-      <audio className="hidden" src={"/audio/HpElALFA.mp3"} autoPlay controls></audio>
+      <audio
+        className="hidden"
+        src={"/audio/HpElALFA.mp3"}
+        autoPlay
+        controls
+      ></audio>
       <motion.button
         onClick={() => FucBtnContador()}
         variants={VarianColor}
@@ -58,9 +69,12 @@ export default function page() {
         </div>
       </motion.button>
 
-      
 
-      <DialogInstrucciones/>
+      <div className="py-10">
+        <span className="text-white font-bold">Tienes que clickear JAJA para ver la carta</span>
+      </div>
+
+      <DialogInstrucciones />
       <DialogCarta
         StatusDialog={StatusDialog}
         setStatusDialog={setStatusDialog}
